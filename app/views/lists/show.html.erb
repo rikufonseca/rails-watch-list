@@ -2,4 +2,12 @@
 
 <%= link_to "voir toutes les listes", lists_path %>
 <br>
-<%= link_to "Ajouter un film", new_list_bookmark_path(@list) %>
+<ul><% @list.movies.each do |movie| %>
+<li><%= movie.title %></li>
+<li><%= movie.overview %></li>
+<li><%= image_tag movie.poster_url, style: 'height:15vw;width:15vw ;margin-bottom:20px;'%> </li>
+<li><%= movie.rating %></li>
+<% end %>
+</ul>
+
+<%= link_to "Ajouter un commentaire", new_list_bookmark_path(@list) %>
